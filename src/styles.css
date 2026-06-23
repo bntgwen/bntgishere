@@ -1,0 +1,212 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@theme inline {
+  --color-background: #000000;
+  --color-foreground: #ffffff;
+  --color-muted: #0a0a0a;
+  --color-muted-foreground: #8a8a8a;
+  --color-border: rgba(255, 255, 255, 0.12);
+  --color-ring: rgba(255, 255, 255, 0.4);
+  --font-display: "Poppins", sans-serif;
+  --font-body: "Raleway", sans-serif;
+}
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.12);
+  color-scheme: dark;
+}
+
+/* Light theme variables */
+:root {
+  --background: #ffffff;
+  --text-main: #000000;
+  --text-muted: rgba(0, 0, 0, 0.6);
+  --border-color: rgba(0, 0, 0, 0.1);
+  --card-bg: rgba(0, 0, 0, 0.02);
+}
+
+html.dark {
+  --background: #000000;
+  --text-main: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.6);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --card-bg: rgba(255, 255, 255, 0.03);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+    -webkit-font-smoothing: antialiased;
+    box-sizing: border-box;
+  }
+  html, body {
+    background-color: #000;
+    color: #fff;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+}
+
+.split-word-wrap {
+  display: inline-flex;
+  margin-right: 0.28em; 
+}
+
+.split-word-wrap:last-child {
+  margin-right: 0; 
+}
+
+.split-char {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(0.3em); 
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), 
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity; 
+}
+
+.split-char.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-grid-cards .card-item {
+  opacity: 0;
+  transform: translateY(25px);
+  will-change: transform, opacity;
+  
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s ease,
+              border-color 0.3s ease;
+}
+
+.reveal-grid-cards.in .card-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-grid-cards .card-item {
+  opacity: 0;
+  transform: translateY(25px);
+  will-change: transform, opacity;
+  
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.reveal-grid-cards.in .card-item {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-grid-cards.in .card-item:nth-child(1) { transition-delay: 40ms; }
+.reveal-grid-cards.in .card-item:nth-child(2) { transition-delay: 100ms; }
+.reveal-grid-cards.in .card-item:nth-child(3) { transition-delay: 160ms; }
+.reveal-grid-cards.in .card-item:nth-child(4) { transition-delay: 220ms; }
+.reveal-grid-cards.in .card-item:nth-child(5) { transition-delay: 280ms; }
+.reveal-grid-cards.in .card-item:nth-child(6) { transition-delay: 340ms; }
+.reveal-grid-cards.in .card-item:nth-child(7) { transition-delay: 400ms; }
+.reveal-grid-cards.in .card-item:nth-child(8) { transition-delay: 460ms; }
+
+
+.card-item {
+  position: relative;
+  background: #050505;
+  padding: 1.75rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  min-height: 140px;
+  will-change: transform, opacity;
+  transition: background 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.card-item:hover {
+  background: #0c0c0c !important;
+  transform: translateY(-5px) scale(1.01) !important;
+  z-index: 10;
+  
+  transition: background 0.15s ease, 
+              transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  
+  transition-delay: 0ms !important; 
+}
+
+.card-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    250px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.06),
+    transparent 80%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.card-item:hover .card-glow {
+  opacity: 1;
+}
+
+.card-item .card-icon {
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-item .card-label {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-size: 1.15rem;
+  color: #fff;
+  letter-spacing: -0.01em;
+}
+
+.card-item .card-meta {
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.45);
+  margin-top: 0.4rem;
+  letter-spacing: 0.25em;
+}
+
+@media (max-w: 640px) {
+  .card-item {
+    padding: 1.25rem;
+    min-height: 120px;
+  }
+  .card-item .card-label {
+    font-size: 1rem;
+  }
+}
+
+.reveal-list {
+  opacity: 0;
+  transform: translateY(15px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              background 0.3s ease;
+}
+
+.reveal-list.in {
+  opacity: 1;
+  transform: translateY(0);
+}
