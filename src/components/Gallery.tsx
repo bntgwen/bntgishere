@@ -28,7 +28,7 @@ interface GearItem {
 
 const hardware: GearItem[] = [
   { label: "Thinkpad X260", meta: "everyday use", icon: "bi-laptop" },
-  { label: "Custom Desktop PCs", meta: "Intel Core i5 Gen 4 w/ Nvidia GT 730 2GB", icon: SlScreenDesktop },
+  { label: "Custom Desktop PCs", meta: "Intel Core i5 Gen 10th (10400f) with NVidia GTX 1660 6GB", icon: SlScreenDesktop },
   { label: "Vivo Y12S", meta: "main phone", icon: "bi-phone-fill" },
 ];
 
