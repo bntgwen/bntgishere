@@ -40,13 +40,21 @@ const software: GearItem[] = [
 
 function GlowCard({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   const ref = useRef<HTMLDivElement>(null);
+  const ticking = useRef(false);
+
   const onMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
     const el = ref.current;
-    if (!el) return;
-    const rect = el.getBoundingClientRect();
-    el.style.setProperty("--mx", `${((e.clientX - rect.left) / rect.width) * 100}%`);
-    el.style.setProperty("--my", `${((e.clientY - rect.top) / rect.height) * 100}%`);
+    if (!el || ticking.current) return;
+
+    ticking.current = true;
+    requestAnimationFrame(() => {
+      const rect = el.getBoundingClientRect();
+      el.style.setProperty("--mx", `${((e.clientX - rect.left) / rect.width) * 100}%`);
+      el.style.setProperty("--my", `${((e.clientY - rect.top) / rect.height) * 100}%`);
+      ticking.current = false;
+    });
   }, []);
+
   return (
     <div ref={ref} onMouseMove={onMove} className={`card-item ${className}`}>
       <div className="card-glow" />
@@ -73,14 +81,15 @@ export function Gallery() {
           {images.map((img, i) => (
             <div
               key={i}
-              className="reveal group relative mb-4 inline-block w-full overflow-hidden border border-white/10 break-inside-avoid"
+              className="reveal group relative mb-4 inline-block w-full overflow-hidden border border-white/10 break-inside-avoid description-card-fix"
             >
               <div style={{ aspectRatio: img.ratio }} className="w-full overflow-hidden">
                 <img
                   src={img.src}
                   alt=""
                   loading="lazy"
-                  className="block h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110"
+                  decoding="async"
+                  className="gallery-image block h-full w-full object-cover transition-transform duration-[1400ms] ease-out group-hover:scale-110"
                 />
               </div>
               <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/60 via-transparent to-transparent opacity-0 transition-opacity duration-700 group-hover:opacity-100" />

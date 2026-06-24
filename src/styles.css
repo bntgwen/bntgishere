@@ -58,6 +58,17 @@ body {
   }
 }
 
+.gallery-image {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+}
+
+.description-card-fix {
+  content-visibility: auto;
+  contain-intrinsic-size: 400px;
+}
+
 .split-word-wrap {
   display: inline-flex;
   margin-right: 0.28em; 
@@ -84,26 +95,10 @@ body {
 .reveal-grid-cards .card-item {
   opacity: 0;
   transform: translateY(25px);
-  will-change: transform, opacity;
-  
   transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
               transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
               background 0.3s ease,
               border-color 0.3s ease;
-}
-
-.reveal-grid-cards.in .card-item {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.reveal-grid-cards .card-item {
-  opacity: 0;
-  transform: translateY(25px);
-  will-change: transform, opacity;
-  
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-grid-cards.in .card-item {
@@ -120,7 +115,6 @@ body {
 .reveal-grid-cards.in .card-item:nth-child(7) { transition-delay: 400ms; }
 .reveal-grid-cards.in .card-item:nth-child(8) { transition-delay: 460ms; }
 
-
 .card-item {
   position: relative;
   background: #050505;
@@ -131,18 +125,16 @@ body {
   justify-content: flex-start;
   align-items: flex-start;
   min-height: 140px;
-  will-change: transform, opacity;
   transition: background 0.2s ease, transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .card-item:hover {
+  will-change: transform;
   background: #0c0c0c !important;
   transform: translateY(-5px) scale(1.01) !important;
   z-index: 10;
-  
   transition: background 0.15s ease, 
               transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
-  
   transition-delay: 0ms !important; 
 }
 
@@ -183,9 +175,14 @@ body {
   font-family: "Raleway", sans-serif;
   font-weight: 300;
   font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.45);
+  color: rgba(255, 255, 255, 0.75);
   margin-top: 0.4rem;
   letter-spacing: 0.25em;
+  transition: color 0.2s ease;
+}
+
+.card-item:hover .card-meta {
+  color: rgba(255, 255, 255, 0.95); 
 }
 
 @media (max-w: 640px) {

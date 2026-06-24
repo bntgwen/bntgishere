@@ -19,7 +19,7 @@ const hobbies: Item[] = [
 ];
 
 const tech: Item[] = [
-  { label: "typescript", meta: "good but sometimes not", icon: SiTypescript }, 
+  { label: "typescript", meta: "good but sometimes not,", icon: SiTypescript }, 
   { label: "reactJS", meta: "favourite anytime", icon: SiReact },           
   { label: "JavaScript", meta: "good enough", icon: SiJavascript },       
   { label: "tailwind CSS", meta: "best stylist ever", icon: SiTailwindcss }, 
@@ -150,7 +150,25 @@ export function Welcome() {
               </GlowCard>
             ))}
           </div>
+
+          <div className="mt-10 max-w-3xl flex flex-col gap-4 border-l border-white/10 pl-6">
+            <SplitText
+              as="p"
+              text="every languages and frameworks that i use in many projects are mostly based on what i like. let's take an example, i love JavaScript than JAVA because it's more unique and challenging. i have so many experience when i learn JavaScript rather than JAVA."
+              className="text-sm sm:text-base leading-relaxed text-white/70 tracking-wide mb-8"
+              style={{ fontWeight: 400 }}
+              staggerSpeed={5}
+            />
+            <SplitText
+              as="p"
+              text="beside of that, i also choose languages and frameworks based on it's own advantages and/or it's disadvantages. let's take an example, if i wanna make fullstack app and i wanna make it easy and ready so i will choose Laravel. because it's simple and the overall performance are pretty decent. also, i can use react or just tailwind for the frontend so it will take less time."
+              className="text-sm sm:text-base leading-relaxed text-white/60 tracking-wide"
+              style={{ fontWeight: 200 }}
+              staggerSpeed={4}
+            />
+          </div>
         </div>
+
       </div>
     </section>
   );
