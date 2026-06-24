@@ -7,17 +7,17 @@ import { SplitText } from "./SplitText";
 interface GalleryImg { src: string; ratio: string; }
 
 const images: GalleryImg[] = [
-  { src: "/images/67w.jpeg", ratio: "3/4" },
-  { src: "/images/sdroof.jpeg", ratio: "4/3" },
-  { src: "/images/landscapemosque.jpeg", ratio: "1/1" },
-  { src: "/images/mosque.jpeg", ratio: "2/3" },
-  { src: "/images/lampagain.jpeg", ratio: "16/9" },
-  { src: "/images/sd.jpeg", ratio: "1/1" },
-  { src: "/images/lampcropped.jpeg", ratio: "3/5" },
-  { src: "/images/roofagainandagain.jpeg", ratio: "5/4" },
-  { src: "/images/idek.jpeg", ratio: "16/10" },
-  { src: "/images/roofandcables.jpeg", ratio: "2/3" },
-  { src: "/images/roofagain.jpeg", ratio: "1/1" },
+  { src: "/images/67w.webp", ratio: "3/4" },
+  { src: "/images/sdroof.webp", ratio: "4/3" },
+  { src: "/images/landscapemosque.webp", ratio: "1/1" },
+  { src: "/images/mosque.webp", ratio: "2/3" },
+  { src: "/images/lampagain.webp", ratio: "16/9" },
+  { src: "/images/sd.webp", ratio: "1/1" },
+  { src: "/images/lampcropped.webp", ratio: "3/5" },
+  { src: "/images/roofagainandagain.webp", ratio: "5/4" },
+  { src: "/images/idek.webp", ratio: "16/10" },
+  { src: "/images/roofandcables.webp", ratio: "2/3" },
+  { src: "/images/roofagain.webp", ratio: "1/1" },
 ];
 
 interface GearItem { 

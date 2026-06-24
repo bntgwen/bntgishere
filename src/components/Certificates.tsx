@@ -15,7 +15,7 @@ const certs: Cert[] = [
     title: "JAVA Foundation - Oracle Academy 2026",
     issuer: "Java Fundamentals",
     year: "2026",
-    image: "/images/Muhammad Bintang Aulia_Java_Foundations_–_Bahasa_Indonesia_Award_Of_Completion_on_the_27th_of_May__2-1.png",
+    image: "/images/Muhammad Bintang Aulia_Java_Foundations_–_Bahasa_Indonesia_Award_Of_Completion_on_the_27th_of_May__2-1.webp",
   },
 ];
 
